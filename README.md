@@ -1,3 +1,6 @@
+#Demo
+[Plunker](https://plnkr.co/edit/O3fP71Yc2uMApv5aGot6)
+
 # Iron Container
 
 `iron-container` is not strictly part of iron-grid but is important in laying out content. It allows you to center your page content. `iron-container`'s default is set to ~90% of the window width. It helps you center and contain your page content. We use the container to contain our body content.
@@ -16,6 +19,8 @@ The following custom proporties are available for styling:
 `iron-grid` helps you layout polymer elements in an ordered, easy fashion. We are using a standard 12 column fluid responsive grid system.
 `iron-grid` is now designed to be used in each element you want to be responsive, not only the complete page. So if you want differents behaviors following screen size for each element, you can. 
  Now each compoment can manage its own responsiveness.
+ 
+ `iron-grid` Is created using flexboxes.
  
 Please note that all the examples pictured below have the class 'example' on them. The class *is* included in the component. This class gives each grid column a 1px white border so that you can see the seperation.
 
