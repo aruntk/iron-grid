@@ -2376,7 +2376,7 @@ It is recomended to only apply logging on iron-grid one at a time. If not, you w
         ],
 
         listeners: {
-          'iron-resize': '_onResize'
+          'iron-resize': 'onResize'
         },
 
         properties: {
@@ -2438,7 +2438,8 @@ It is recomended to only apply logging on iron-grid one at a time. If not, you w
           },
 
           currentScreenformat: {
-            type: String
+            type: String,
+            notify: true
           }
         },
 
@@ -2496,8 +2497,12 @@ It is recomended to only apply logging on iron-grid one at a time. If not, you w
           return prefix + screen + size + suffix;
         },
 
-        _onResize: function(event) {
+        onResize: function(event) {
           var newWidth = this.offsetWidth;
+          
+          if(newWidth == 0){
+					        newWidth = this.parentNode.clientWidth;
+					     }
 
           if (this.log)
             console.log('width : ' + newWidth);
@@ -2549,15 +2554,11 @@ Custom property | Description | Default
 <dom-module id="iron-grid-container">
   <template>
     <style>
-      :host {
-        --iron-container-width: 90%;
-      }
-
       .iron-container {
         padding: 0 1.5 rem;
         margin: 0 auto;
-        max-width: 1280px;
-        width: var(--iron-container-width);
+        max-width: var(--iron-container-max-width, 1280px);
+        width: var(--iron-container-width, 90%);
       }
 
       .iron-container::content iron-grid {
